@@ -44,13 +44,11 @@ func (s *seriesNumber) UnmarshalJSON(data []byte) error {
 		if len(splits) == 2 {
 			s.Number, err = strconv.Atoi(splits[0])
 			if err != nil {
-				return err
+				// is not valid
+				return nil
 			}
 
-			s.Total, err = strconv.Atoi(splits[1])
-			if err != nil {
-				return err
-			}
+			s.Total, _ = strconv.Atoi(splits[1])
 
 			s.Valid = true
 
