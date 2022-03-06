@@ -79,7 +79,7 @@ func (e *EPGDownloader) downloadEPG(date string) error {
 
 	for _, channel := range e.channels {
 		if fileExists(date, channel.ID) {
-			if !e.ForceDownload {
+			if !e.ForceDownload || today.New().GetString() != date {
 				continue
 			}
 

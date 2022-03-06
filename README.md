@@ -40,7 +40,7 @@ XMLTV_PORT=1234 ./xmltv-proxy_linux_x64
 ```
 XMLTV_DAYS: (optional, default=7) Count of days to download from your epg source and serve: 1-14
 XMLTV_TIMEZONE: (optional, default=system) Set your timezone for correct airtime: e.g. "Europe/Berlin"
-XMLTV_DAILY_DOWNLOAD: (optional, default=false) Force downloading latest epg every day
+XMLTV_DAILY_DOWNLOAD: (optional, default=false) Force downloading epg for actual day in daily cron (short-termed changes)
 XMLTV_PORT: (optional, default=8080) Use specific port for webservice
 XMLTV_INSECURE_TLS: (optional, default=false) Allow insecure http/s requests
 ```
