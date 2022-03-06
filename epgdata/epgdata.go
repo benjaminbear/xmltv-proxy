@@ -55,15 +55,15 @@ type Show struct {
 	Timeend           dateTime        `json:"timeend"`
 	Timestart         dateTime        `json:"timestart"`
 	Title             string          `json:"title"`
+	OriginalTitle     string          `json:"originalTitle,omitempty"`
 	SartID            string          `json:"sart_id"`
 	Year              int             `json:"year"`
 	Actors            []*Actor        `json:"actors,omitempty"`
 	Anchorman         *StdListElement `json:"anchorman,omitempty"`
 	Director          *StdListElement `json:"director,omitempty"`
 	StudioGuests      *StdListElement `json:"studio_guests,omitempty"`
-	EpisodeNumber     string          `json:"episodeNumber,omitempty"`
-	OriginalTitle     string          `json:"originalTitle,omitempty"`
-	SeasonNumber      string          `json:"seasonNumber,omitempty"`
+	EpisodeNumber     seriesNumber    `json:"episodeNumber,omitempty"`
+	SeasonNumber      seriesNumber    `json:"seasonNumber,omitempty"`
 	Videos            []struct {
 		Title      string `json:"title"`
 		Catchline  string `json:"catchline"`

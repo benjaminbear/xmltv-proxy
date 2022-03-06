@@ -140,23 +140,9 @@ func (r *RunTime) Merge() (err error) {
 			}
 		}
 
-		if show.EpisodeNumber != "" || show.SeasonNumber != "" {
-			seasonNum := 1
-			episodeNum := "0"
-
-			if show.EpisodeNumber != "" {
-				episodeNum = show.EpisodeNumber
-			}
-
-			if show.SeasonNumber != "" {
-				seasonNum, err = strconv.Atoi(show.SeasonNumber)
-				if err != nil {
-					return err
-				}
-			}
-
+		if show.EpisodeNumber.Valid || show.SeasonNumber.Valid {
 			tvProgram.EpisodeNum = &xmltv.EpisodeNum{
-				Value:  fmt.Sprintf("%d . %s . ", seasonNum-1, episodeNum),
+				Value:  fmt.Sprintf("%s . %s . ", show.SeasonNumber.XMLTVString(), show.EpisodeNumber.XMLTVString()),
 				System: "xmltv_ns",
 			}
 		}
