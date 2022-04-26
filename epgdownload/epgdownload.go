@@ -97,7 +97,8 @@ func (e *EPGDownloader) downloadEPG(date string) error {
 		defer resp.Body.Close()
 
 		if resp.StatusCode != 200 {
-			return fmt.Errorf("request returned response %v", resp.StatusCode)
+			fmt.Printf("request %s returned response %v\n", resp.Request.URL, resp.StatusCode)
+			continue
 		}
 
 		// Create an empty file
